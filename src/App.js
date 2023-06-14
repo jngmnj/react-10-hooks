@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import { useEffect, useState } from "react";
 import './App.css';
 
-function App() {
+const App = () => {
+  const sayHello = () => console.log("hello");
+  const [number, setNumber] = useState(0);
+  const [aNumber, setAnumber] = useState(0);
+  useEffect(sayHello, [number]); //number가 바뀔때만 sayHello하기
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>HI</div>
+      <button onClick={() => setNumber(number + 1)}>{number}</button>
+      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
     </div>
   );
-}
-
+};
 export default App;
